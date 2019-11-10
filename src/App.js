@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import logo512 from './logo512.png';
 import './App.css';
 import SearchBox from './Components/SearchBox';
-import RecipeCard from './Components/RecipeCard';
+import SearchResults from './Components/SearchResults';
 
 function App() {
+  // const [searchBy, setSearchBy] = useState([]); for by ingredients or by query
   const [searchQuery, setSearchQuery] = useState('');
+  const [recipes, setRecipes] = useState([]);
 
   const fetchRecipes = async e => {
     e.preventDefault();
 
+    // the API is not correctly configured for CORS, so we need to make the request through a proxy
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     const url = `http://www.recipepuppy.com/api/?q=${searchQuery}`;
     const response = await fetch(proxyUrl + url, {
@@ -25,8 +28,9 @@ function App() {
     if (response.ok) {
       const json = await response.json();
       console.log('json response: ', json.results);
-      return json.results;
+      setRecipes(json.results);
     } else {
+      // send the error to the designated logging service
       console.log('HTTP-Error: ' + response.status);
     }
   };
@@ -46,7 +50,7 @@ function App() {
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
         />
-        <RecipeCard />
+        <SearchResults recipes={recipes} />
       </header>
     </div>
   );

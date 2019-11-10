@@ -1,8 +1,6 @@
 import React from 'react';
 
-const SearchBox = ({ ...props }) => {
-  const { fetchRecipes, searchQuery, setSearchQuery } = props;
-
+const SearchBox = ({ fetchRecipes, searchQuery, setSearchQuery }) => {
   return (
     <div className="search-box">
       <form onSubmit={fetchRecipes}>
