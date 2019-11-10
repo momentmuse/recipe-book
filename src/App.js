@@ -6,14 +6,13 @@ import SearchResults from './Components/SearchResults';
 
 function App() {
   // search for recipes by ingredients or by query
-  const [searchBy, setSearchBy] = useState({ ingredients: true, query: false });
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchIngredients, setSearchIngredients] = useState('');
+  const [searchBy, setSearchBy] = useState({ ingredients: true, type: false });
+  const [searchQuery, setSearchQuery] = useState({ ingredients: '', type: '' });
   const [recipes, setRecipes] = useState([]);
 
   const assembleQueryString = () => {
-    const ingredients = searchIngredients.replace(' ', '');
-    const query = searchQuery;
+    const ingredients = searchQuery.ingredients.replace(' ', '');
+    const query = searchQuery.type;
 
     if (searchBy.ingredients && searchBy.query) {
       return `?i=${ingredients}&q=${query}`;
@@ -66,8 +65,6 @@ function App() {
           setSearchBy={setSearchBy}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
-          searchIngredients={searchIngredients}
-          setSearchIngredients={setSearchIngredients}
         />
         <SearchResults recipes={recipes} />
       </header>

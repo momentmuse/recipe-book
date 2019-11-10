@@ -6,9 +6,7 @@ const SearchBox = ({
   searchBy,
   setSearchBy,
   searchQuery,
-  setSearchQuery,
-  searchIngredients,
-  setSearchIngredients
+  setSearchQuery
 }) => {
   const toggleSearchBy = searchType => {
     setSearchBy({ ...searchBy, [searchType]: !searchBy[searchType] });
@@ -19,7 +17,7 @@ const SearchBox = ({
     <div className="search-box">
       <label htmlFor="search-by">
         What would you like to search by?
-        <button onClick={() => toggleSearchBy('query')}>Recipe Type</button>
+        <button onClick={() => toggleSearchBy('type')}>Recipe Type</button>
         <button onClick={() => toggleSearchBy('ingredients')}>
           Ingredients
         </button>
@@ -29,12 +27,10 @@ const SearchBox = ({
           searchBy={searchBy}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
-          searchIngredients={searchIngredients}
-          setSearchIngredients={setSearchIngredients}
         />
         <button>Let's get cooking!</button>
       </form>
-      <p>{searchQuery}</p>
+      <p>searchquery: {JSON.stringify(searchQuery)}</p>
     </div>
   );
 };

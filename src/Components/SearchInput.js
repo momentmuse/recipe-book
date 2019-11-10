@@ -1,35 +1,37 @@
 import React from 'react';
 
-const SearchInput = ({
-  searchBy,
-  searchQuery,
-  setSearchQuery,
-  searchIngredients,
-  setSearchIngredients
-}) => {
+const SearchInput = ({ searchBy, searchQuery, setSearchQuery }) => {
   return (
     <React.Fragment>
-      {searchBy.query && (
-        <label htmlFor="query-input">
+      {searchBy.type && (
+        <label htmlFor="type-input">
           What would you like to make?
           <input
             id="search"
-            value={searchQuery}
+            value={searchQuery.type}
             placeholder="Pizza, omelet, soup, cake etc"
-            onChange={e => setSearchQuery(e.target.value)}
-            onBlur={e => setSearchQuery(e.target.value)}
+            onChange={e =>
+              setSearchQuery({ ...searchQuery, type: e.target.value })
+            }
+            onBlur={e =>
+              setSearchQuery({ ...searchQuery, type: e.target.value })
+            }
           />
         </label>
       )}
       {searchBy.ingredients && (
-        <label htmlFor="query-input">
+        <label htmlFor="ingredients-input">
           What ingredients do you have?
           <input
             id="search"
-            value={searchIngredients}
+            value={searchQuery.ingredients}
             placeholder="Carrot, milk, apple, etc"
-            onChange={e => setSearchIngredients(e.target.value)}
-            onBlur={e => setSearchIngredients(e.target.value)}
+            onChange={e =>
+              setSearchQuery({ ...searchQuery, ingredients: e.target.value })
+            }
+            onBlur={e =>
+              setSearchQuery({ ...searchQuery, ingredients: e.target.value })
+            }
           />
         </label>
       )}
