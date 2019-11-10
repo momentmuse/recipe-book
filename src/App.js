@@ -5,8 +5,10 @@ import SearchBox from './Components/SearchBox';
 import SearchResults from './Components/SearchResults';
 
 function App() {
-  // const [searchBy, setSearchBy] = useState([]); for by ingredients or by query
+  // search for recipes by ingredients or by query
+  const [searchBy, setSearchBy] = useState({ ingredients: true, query: false });
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchIngredients, setSearchIngredients] = useState('');
   const [recipes, setRecipes] = useState([]);
 
   const fetchRecipes = async e => {
@@ -47,8 +49,12 @@ function App() {
         </p>
         <SearchBox
           fetchRecipes={fetchRecipes}
+          searchBy={searchBy}
+          setSearchBy={setSearchBy}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
+          searchIngredients={searchIngredients}
+          setSearchIngredients={setSearchIngredients}
         />
         <SearchResults recipes={recipes} />
       </header>
