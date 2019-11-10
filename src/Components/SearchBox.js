@@ -7,14 +7,8 @@ const SearchBox = ({ searches, setSearches }) => {
   const addIngredient = (e, inputIngredient) => {
     e.preventDefault();
 
-    if (searches.length === 0) {
-      setSearches([...searches, [inputIngredient]]);
-    } else {
-      setSearches([
-        ...searches,
-        [...searches[searches.length - 1], inputIngredient]
-      ]);
-    }
+    const lastSearch = searches[searches.length - 1] || [];
+    setSearches([...searches, [...lastSearch, inputIngredient]]);
 
     // clears the input for the next ingredient
     setIngredient('');
