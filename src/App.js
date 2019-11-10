@@ -12,14 +12,14 @@ function App() {
 
   const assembleQueryString = () => {
     const ingredients = searchQuery.ingredients.replace(' ', '');
-    const query = searchQuery.type;
+    const type = searchQuery.type;
 
-    if (searchBy.ingredients && searchBy.query) {
-      return `?i=${ingredients}&q=${query}`;
+    if (searchBy.ingredients && searchBy.type) {
+      return `?i=${ingredients}&q=${type}`;
     } else if (searchBy.ingredients) {
       return `?i=${ingredients}`;
     } else {
-      return `?q=${query}`;
+      return `?q=${type}`;
     }
   };
 
