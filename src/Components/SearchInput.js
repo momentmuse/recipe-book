@@ -7,7 +7,7 @@ const SearchInput = ({ searchBy, searchQuery, setSearchQuery }) => {
         <label htmlFor="type-input">
           What would you like to make?
           <input
-            id="search"
+            id="search-by-type"
             value={searchQuery.type}
             placeholder="Pizza, omelet, soup, cake etc"
             onChange={e =>
@@ -21,9 +21,9 @@ const SearchInput = ({ searchBy, searchQuery, setSearchQuery }) => {
       )}
       {searchBy.ingredients && (
         <label htmlFor="ingredients-input">
-          What ingredients do you have?
+          What ingredients do you have? (separate with commas)
           <input
-            id="search"
+            id="search-by-ingredients"
             value={searchQuery.ingredients}
             placeholder="Carrot, milk, apple, etc"
             onChange={e =>

@@ -1,10 +1,21 @@
 import React from 'react';
+import RecipeImg from './RecipeImg';
 
-const RecipeCard = ({ generateRecipeList, recipes }) => {
+const RecipeCard = ({ recipe }) => {
+  const lactoseCheck = recipe => {
+    return recipe.ingredients.includes('milk') ||
+      recipe.ingredients.includes('cheese')
+      ? 'contains-lactose'
+      : '';
+  };
+
   return (
-    <div className="recipes-container">
-      {recipes.length > 0 && generateRecipeList(recipes)}
-    </div>
+    <a href={recipe.href}>
+      <div className={'recipe-card ' + lactoseCheck(recipe)}>
+        <h2>{recipe.title}</h2>
+        <RecipeImg img={recipe.thumbnail} />
+      </div>
+    </a>
   );
 };
 
