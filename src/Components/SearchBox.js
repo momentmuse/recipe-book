@@ -1,31 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const SearchBox = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const fetchRecipes = async e => {
-    e.preventDefault();
-
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    const url = `http://www.recipepuppy.com/api/?q=${searchQuery}`;
-    const response = await fetch(proxyUrl + url, {
-      method: 'GET',
-      mode: 'cors',
-      credentials: 'same-origin',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      }
-    });
-
-    if (response.ok) {
-      const json = await response.json();
-      console.log('json response: ', json.results);
-      return json.results;
-    } else {
-      console.log('HTTP-Error: ' + response.status);
-    }
-  };
+const SearchBox = ({ ...props }) => {
+  const { fetchRecipes, searchQuery, setSearchQuery } = props;
 
   return (
     <div className="search-box">
