@@ -11,12 +11,25 @@ function App() {
   const [searchIngredients, setSearchIngredients] = useState('');
   const [recipes, setRecipes] = useState([]);
 
+  const assembleQueryString = () => {
+    const ingredients = searchIngredients.replace(' ', '');
+    const query = searchQuery;
+
+    if (searchBy.ingredients && searchBy.query) {
+      return `?i=${ingredients}&q=${query}`;
+    } else if (searchBy.ingredients) {
+      return `?i=${ingredients}`;
+    } else {
+      return `?q=${query}`;
+    }
+  };
+
   const fetchRecipes = async e => {
     e.preventDefault();
 
     // the API is not correctly configured for CORS, so we need to make the request through a proxy
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    const url = `http://www.recipepuppy.com/api/?q=${searchQuery}`;
+    const url = `http://www.recipepuppy.com/api/${assembleQueryString()}`;
     const response = await fetch(proxyUrl + url, {
       method: 'GET',
       mode: 'cors',
