@@ -60,7 +60,7 @@ function App() {
         <img src={logo512} className="App-logo" alt="logo" />
         <p>Recipes</p>
         <SearchForm searches={searches} setSearches={setSearches} />
-        <SearchResults recipes={recipes} />
+        <SearchResults searches={searches} recipes={recipes} />
       </header>
     </div>
   );
