@@ -7,7 +7,7 @@ const SearchInput = ({ onChange, values, errors }) => {
       <input
         type="text"
         name="ingredient"
-        className={'ingredient-input' + (errors.ingredient && ' is-invalid')}
+        className={`ingredient-input${errors.ingredient ? ' is-invalid' : ''}`}
         placeholder="tomato"
         value={values.ingredient}
         onChange={e => onChange(e)}

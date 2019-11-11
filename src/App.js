@@ -22,6 +22,7 @@ function App() {
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else {
+      // pull this out with a useCallback hook
       const fetchRecipes = async searchArray => {
         // triggers if all previously searched items are deleted
         if (searchArray.length === 0) {
