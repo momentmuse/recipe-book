@@ -12,6 +12,7 @@ function App() {
   // const [searchArray, setSearchArray] = useState([]);
 
   const buildQuery = searchArray => {
+    // API is not configured for CORS, so we need to request through a proxy
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     const api = `http://www.recipepuppy.com/api/?i=`;
     return proxyUrl + api + searchArray.join(',');
@@ -22,7 +23,12 @@ function App() {
       isInitialMount.current = false;
     } else {
       const fetchRecipes = async searchArray => {
-        // API is not configured for CORS, so we need to request through a proxy
+        // triggers if all previously searched items are deleted
+        if (searchArray.length === 0) {
+          setRecipes([]);
+          return;
+        }
+
         const response = await fetch(buildQuery(searchArray), {
           method: 'GET',
           mode: 'cors',
@@ -51,12 +57,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo512} className="App-logo" alt="logo" />
-        <p>
-          Recipes{' '}
-          <span role="img" aria-label="book">
-            📖
-          </span>
-        </p>
+        <p>Recipes</p>
         <SearchForm searches={searches} setSearches={setSearches} />
         <SearchResults recipes={recipes} />
       </header>
