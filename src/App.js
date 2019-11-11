@@ -8,6 +8,8 @@ function App() {
   const isInitialMount = useRef(true);
   const [searches, setSearches] = useState([]);
   const [recipes, setRecipes] = useState([]);
+  // additional logic for performing precious searches?
+  // const [searchArray, setSearchArray] = useState([]);
 
   const buildQuery = searchArray => {
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
@@ -20,7 +22,7 @@ function App() {
       isInitialMount.current = false;
     } else {
       const fetchRecipes = async searchArray => {
-        // the API is not correctly configured for CORS, so we need to make the request through a proxy
+        // API is not configured for CORS, so we need to request through a proxy
         const response = await fetch(buildQuery(searchArray), {
           method: 'GET',
           mode: 'cors',
@@ -33,10 +35,9 @@ function App() {
 
         if (response.ok) {
           const json = await response.json();
-          console.log('json response: ', json.results);
           setRecipes(json.results);
         } else {
-          // send the error to the designated logging service
+          // send error to a designated logging service
           console.log('HTTP-Error: ' + response.status);
         }
       };
