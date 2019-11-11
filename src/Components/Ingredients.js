@@ -6,6 +6,8 @@ const Ingredients = ({ searches, setSearches }) => {
       ...searches,
       [...searches[searches.length - 1].filter(item => item !== ingredient)]
     ]);
+
+    // this needs integration with error validation
   };
 
   const generateIngredientButtons = searches => {

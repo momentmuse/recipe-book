@@ -3,9 +3,8 @@ import SearchInput from './SearchInput';
 import Ingredients from './Ingredients';
 import useForm from '../Hooks/useForm';
 
-const SearchBox = ({ searches, setSearches }) => {
+const SearchForm = ({ searches, setSearches }) => {
   const addIngredient = ingredient => {
-    console.log('ingredient in addIngredient!', ingredient);
     const lastSearch = searches[searches.length - 1] || [];
     setSearches([...searches, [...lastSearch, ingredient]]);
   };
@@ -25,10 +24,10 @@ const SearchBox = ({ searches, setSearches }) => {
   );
 
   return (
-    <div className="search-box">
+    <div className="search-form">
       <form onSubmit={e => onSubmit(e)}>
         <p>searchquery: {JSON.stringify(searches)}</p>
-        <SearchInput onChange={onChange} errors={errors} values={values} />
+        <SearchInput onChange={onChange} values={values} errors={errors} />
         <button>Let's get cooking!</button>
       </form>
       <Ingredients searches={searches} setSearches={setSearches} />
@@ -36,4 +35,4 @@ const SearchBox = ({ searches, setSearches }) => {
   );
 };
 
-export default SearchBox;
+export default SearchForm;

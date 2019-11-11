@@ -1,13 +1,13 @@
 import React from 'react';
 
-const SearchInput = ({ onChange, errors, values }) => {
+const SearchInput = ({ onChange, values, errors }) => {
   return (
     <label htmlFor="input">
       Search by ingredient
       <input
         type="text"
         name="ingredient"
-        className={`ingredient-input ${errors.ingredient && 'is-invalid'}`}
+        className={'ingredient-input' + (errors.ingredient && ' is-invalid')}
         placeholder="tomato"
         value={values.ingredient}
         onChange={e => onChange(e)}

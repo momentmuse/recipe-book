@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import logo512 from './logo512.png';
 import './App.css';
-import SearchBox from './Components/SearchBox';
+import SearchForm from './Components/SearchForm';
 import SearchResults from './Components/SearchResults';
 
 function App() {
@@ -57,7 +57,7 @@ function App() {
             📖
           </span>
         </p>
-        <SearchBox searches={searches} setSearches={setSearches} />
+        <SearchForm searches={searches} setSearches={setSearches} />
         <SearchResults recipes={recipes} />
       </header>
     </div>
