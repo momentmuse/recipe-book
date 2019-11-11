@@ -1,26 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SearchInput from './SearchInput';
-import SearchedIngredients from './SearchedIngredients';
+import Ingredients from './Ingredients';
+import useForm from '../Hooks/useForm';
 
 const SearchBox = ({ searches, setSearches }) => {
-  const [ingredient, setIngredient] = useState('');
-
-  const addIngredient = (e, inputIngredient) => {
-    e.preventDefault();
+  const addIngredient = ingredient => {
+    console.log('ingredient in addIngredient!', ingredient);
     const lastSearch = searches[searches.length - 1] || [];
-    setSearches([...searches, [...lastSearch, inputIngredient]]);
-    // clears the input for the next ingredient
-    setIngredient('');
+    setSearches([...searches, [...lastSearch, ingredient]]);
   };
+
+  const validateIngredientForm = values => {
+    const errors = {};
+    if (values.ingredient.trim().length < 3) {
+      errors.ingredient = 'Ingredients must be at least 3 characters long';
+    }
+    return errors;
+  };
+
+  const { onChange, onSubmit, values, errors } = useForm(
+    () => addIngredient(values.ingredient),
+    { ingredient: '' },
+    validateIngredientForm
+  );
 
   return (
     <div className="search-box">
-      <form onSubmit={e => addIngredient(e, ingredient)}>
+      <form onSubmit={e => onSubmit(e)}>
         <p>searchquery: {JSON.stringify(searches)}</p>
-        <SearchInput ingredient={ingredient} setIngredient={setIngredient} />
+        <SearchInput onChange={onChange} errors={errors} values={values} />
         <button>Let's get cooking!</button>
       </form>
-      <SearchedIngredients searches={searches} setSearches={setSearches} />
+      <Ingredients searches={searches} setSearches={setSearches} />
     </div>
   );
 };

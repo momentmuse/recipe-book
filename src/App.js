@@ -35,6 +35,7 @@ function App() {
 
         if (response.ok) {
           const json = await response.json();
+          console.log('yo here are the API results: ', json.results);
           setRecipes(json.results);
         } else {
           // send error to a designated logging service
