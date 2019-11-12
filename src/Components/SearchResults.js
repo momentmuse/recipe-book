@@ -17,8 +17,8 @@ const SearchResults = ({ searches, recipes, spinnerIcon }) => {
   };
 
   const recipeList = recipes => {
-    return recipes.map(recipe => {
-      return <RecipeCard recipe={recipe} key={recipe.title} />;
+    return recipes.map((recipe, index) => {
+      return <RecipeCard recipe={recipe} key={recipe.title + index} />;
     });
   };
 
