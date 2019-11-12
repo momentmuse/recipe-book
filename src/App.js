@@ -10,8 +10,6 @@ const App = () => {
   const [searches, setSearches] = useState([]);
   const [recipes, setRecipes] = useState([]);
   const { spinnerIcon, setSpinnerVisible } = useSpinner();
-  // additional logic for performing precious searches?
-  // const [searchArray, setSearchArray] = useState([]);
 
   const buildQuery = searchArray => {
     // API is not configured for CORS, so I spun up a cors-anywhere server on heroku to serve as proxy
@@ -45,7 +43,6 @@ const App = () => {
 
         if (response.ok) {
           const json = await response.json();
-          console.log('yo here are the API results: ', json.results);
           setSpinnerVisible(false);
           setRecipes(json.results);
         } else {
@@ -56,6 +53,8 @@ const App = () => {
       };
 
       fetchRecipes(searches[searches.length - 1]);
+      // fetchRecipes(currentSearch);
+      // [currentSearch, setSpinnerVisible]
     }
   }, [searches, setSpinnerVisible]);
 

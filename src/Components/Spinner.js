@@ -8,7 +8,7 @@ const Spinner = () => {
         height="200px"
         viewBox="0 0 100 100"
         preserveAspectRatio="xMidYMid"
-        class="lds-ellipsis"
+        className="lds-ellipsis"
         style={{ background: 'none' }}
       >
         <circle cx="84" cy="50" r="0.918799" fill="#ffb900">

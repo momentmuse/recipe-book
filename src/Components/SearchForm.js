@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchInput from './SearchInput';
+import SearchLog from './SearchLog';
 import Ingredients from './Ingredients';
 import useForm from '../Hooks/useForm';
 
@@ -30,6 +31,7 @@ const SearchForm = ({ searches, setSearches }) => {
         <SearchInput onChange={onChange} values={values} errors={errors} />
         <button>Let's get cooking!</button>
       </form>
+      <SearchLog searches={searches} setSearches={setSearches} />
       <Ingredients searches={searches} setSearches={setSearches} />
     </div>
   );
