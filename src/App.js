@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import logo512 from './logo512.png';
+import logo192 from './logo192.png';
 import './App.css';
 import SearchForm from './Components/SearchForm';
 import SearchResults from './Components/SearchResults';
 import useSpinner from './Hooks/useSpinner';
 
-function App() {
+const App = () => {
   const isInitialMount = useRef(true);
   const [searches, setSearches] = useState([]);
   const [recipes, setRecipes] = useState([]);
@@ -62,7 +62,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo512} className="App-logo" alt="logo" />
+        <img src={logo192} className="App-logo" alt="logo" />
         <p>Recipes</p>
         <SearchForm searches={searches} setSearches={setSearches} />
         <SearchResults
@@ -73,6 +73,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;
