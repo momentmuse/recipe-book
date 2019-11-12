@@ -22,7 +22,6 @@ const App = () => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else {
-      // pull this out with a useCallback hook
       const fetchRecipes = async searchArray => {
         // triggers if all previously searched items are deleted
         if (searchArray.length === 0) {
@@ -31,15 +30,7 @@ const App = () => {
         }
 
         setSpinnerVisible(true);
-        const response = await fetch(buildQuery(searchArray), {
-          method: 'GET',
-          mode: 'cors',
-          credentials: 'same-origin',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          }
-        });
+        const response = await fetch(buildQuery(searchArray));
 
         if (response.ok) {
           const json = await response.json();
@@ -48,13 +39,11 @@ const App = () => {
         } else {
           // send error to a designated logging service
           setSpinnerVisible(false);
-          console.log('HTTP-Error: ' + response.status);
+          console.error('HTTP-Error: ' + response.status);
         }
       };
 
       fetchRecipes(searches[searches.length - 1]);
-      // fetchRecipes(currentSearch);
-      // [currentSearch, setSpinnerVisible]
     }
   }, [searches, setSpinnerVisible]);
 

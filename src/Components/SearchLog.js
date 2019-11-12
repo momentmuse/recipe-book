@@ -29,7 +29,6 @@ const SearchLog = ({ searches, setSearches }) => {
   };
 
   const selectRecent = e => {
-    // console.log('wooohoooo!!!', e.target.value.split(','));
     e.preventDefault();
     setSearches([...searches, e.target.value.split(',')]);
   };
