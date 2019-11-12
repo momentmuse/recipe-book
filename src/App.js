@@ -12,8 +12,8 @@ function App() {
   // const [searchArray, setSearchArray] = useState([]);
 
   const buildQuery = searchArray => {
-    // API is not configured for CORS, so we need to request through a proxy
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    // API is not configured for CORS, so I spun up a cors-anywhere server on heroku to serve as proxy
+    const proxyUrl = 'https://stark-taiga-49462.herokuapp.com/';
     const api = `http://www.recipepuppy.com/api/?i=`;
     return proxyUrl + api + searchArray.join(',');
   };
