@@ -6,8 +6,6 @@ const Ingredients = ({ searches, setSearches }) => {
       ...searches,
       [...searches[searches.length - 1].filter(item => item !== ingredient)]
     ]);
-
-    // this needs integration with recipe fetching
   };
 
   const generateIngredientButtons = searches => {
