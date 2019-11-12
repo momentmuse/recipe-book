@@ -4,13 +4,24 @@ import RecipeCard from './RecipeCard';
 const SearchResults = ({ searches, recipes, spinnerIcon }) => {
   const lastSearch = searches[searches.length - 1] || [];
 
-  const generateRecipeList = recipes => {
+  const populateResults = (spinnerIcon, recipes) => {
+    if (spinnerIcon) {
+      return spinnerIcon;
+    } else if (recipes.length > 0) {
+      return recipeList(recipes);
+    } else if (lastSearch.length > 0) {
+      return noResultsFound();
+    } else {
+      return;
+    }
+  };
+
+  const recipeList = recipes => {
     return recipes.map(recipe => {
       return <RecipeCard recipe={recipe} key={recipe.title} />;
     });
   };
 
-  // this is displaying while the API fetch is happening
   const noResultsFound = () => {
     return (
       <div>
@@ -24,9 +35,7 @@ const SearchResults = ({ searches, recipes, spinnerIcon }) => {
 
   return (
     <div className="search-results">
-      {spinnerIcon}
-      {recipes.length > 0 && generateRecipeList(recipes)}
-      {lastSearch.length > 0 && recipes.length === 0 && noResultsFound()}
+      {populateResults(spinnerIcon, recipes)}
     </div>
   );
 };
