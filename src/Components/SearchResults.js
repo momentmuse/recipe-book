@@ -1,7 +1,7 @@
 import React from 'react';
 import RecipeCard from './RecipeCard';
 
-const SearchResults = ({ searches, recipes }) => {
+const SearchResults = ({ searches, recipes, spinnerIcon }) => {
   const lastSearch = searches[searches.length - 1] || [];
 
   const generateRecipeList = recipes => {
@@ -24,6 +24,7 @@ const SearchResults = ({ searches, recipes }) => {
 
   return (
     <div className="search-results">
+      {spinnerIcon}
       {recipes.length > 0 && generateRecipeList(recipes)}
       {lastSearch.length > 0 && recipes.length === 0 && noResultsFound()}
     </div>

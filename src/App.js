@@ -3,11 +3,13 @@ import logo512 from './logo512.png';
 import './App.css';
 import SearchForm from './Components/SearchForm';
 import SearchResults from './Components/SearchResults';
+import useSpinner from './Hooks/useSpinner';
 
 function App() {
   const isInitialMount = useRef(true);
   const [searches, setSearches] = useState([]);
   const [recipes, setRecipes] = useState([]);
+  const { spinnerIcon, setSpinnerVisible } = useSpinner();
   // additional logic for performing precious searches?
   // const [searchArray, setSearchArray] = useState([]);
 
@@ -30,6 +32,7 @@ function App() {
           return;
         }
 
+        setSpinnerVisible(true);
         const response = await fetch(buildQuery(searchArray), {
           method: 'GET',
           mode: 'cors',
@@ -43,16 +46,18 @@ function App() {
         if (response.ok) {
           const json = await response.json();
           console.log('yo here are the API results: ', json.results);
+          setSpinnerVisible(false);
           setRecipes(json.results);
         } else {
           // send error to a designated logging service
+          setSpinnerVisible(false);
           console.log('HTTP-Error: ' + response.status);
         }
       };
 
       fetchRecipes(searches[searches.length - 1]);
     }
-  }, [searches]);
+  }, [searches, setSpinnerVisible]);
 
   return (
     <div className="App">
@@ -60,7 +65,11 @@ function App() {
         <img src={logo512} className="App-logo" alt="logo" />
         <p>Recipes</p>
         <SearchForm searches={searches} setSearches={setSearches} />
-        <SearchResults searches={searches} recipes={recipes} />
+        <SearchResults
+          searches={searches}
+          recipes={recipes}
+          spinnerIcon={spinnerIcon}
+        />
       </header>
     </div>
   );
