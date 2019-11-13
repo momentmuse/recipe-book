@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import logo192 from './logo192.png';
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+import theme from './theme.js';
 import SearchForm from './Components/SearchForm';
 import SearchResults from './Components/SearchResults';
 import useSpinner from './Hooks/useSpinner';
@@ -31,7 +32,6 @@ const App = () => {
 
         setSpinnerVisible(true);
         const response = await fetch(buildQuery(searchArray));
-
         if (response.ok) {
           const json = await response.json();
           setSpinnerVisible(false);
@@ -48,18 +48,22 @@ const App = () => {
   }, [searches, setSpinnerVisible]);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo192} className="App-logo" alt="logo" />
-        <p>Recipes</p>
-        <SearchForm searches={searches} setSearches={setSearches} />
-        <SearchResults
-          searches={searches}
-          recipes={recipes}
-          spinnerIcon={spinnerIcon}
-        />
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div>
+        <header>
+          <img src={logo192} alt="logo" />
+          <p>Recipes</p>
+        </header>
+        <main>
+          <SearchForm searches={searches} setSearches={setSearches} />
+          <SearchResults
+            searches={searches}
+            recipes={recipes}
+            spinnerIcon={spinnerIcon}
+          />
+        </main>
+      </div>
+    </ThemeProvider>
   );
 };
 
