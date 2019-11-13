@@ -30,7 +30,7 @@ const SearchInput = ({ onChange, values, errors }) => {
         type="text"
         name="ingredient"
         className={`ingredient-input${errors.ingredient ? ' is-invalid' : ''}`}
-        placeholder="Enter an ingredient eg. 'tomato'"
+        placeholder="Enter an ingredient eg. 'peppers'"
         value={values.ingredient}
         onChange={e => onChange(e)}
         onBlur={e => onChange(e)}

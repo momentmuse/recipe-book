@@ -16,7 +16,7 @@ const SpeechBubble = styled.span`
   font-size: 1.1rem;
   text-align: center;
 
-  &::after {
+  &:after {
     content: '';
     position: absolute;
     top: 0;

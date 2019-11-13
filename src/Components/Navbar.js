@@ -18,7 +18,8 @@ const Nav = styled.div`
 const Title = styled.span`
   font-size: 1.8em;
   font-weight: 900;
-  color: ${props => props.theme.light};
+  letter-spacing: 1px;
+  color: #fff;
 `;
 
 const Navbar = () => {

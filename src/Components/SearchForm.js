@@ -10,7 +10,7 @@ const SearchFormContainer = styled.div`
 `;
 
 const Form = styled.form`
-  margin: 1.5rem 0;
+  margin: 1rem 0;
 `;
 
 const Button = styled.button`
@@ -20,10 +20,16 @@ const Button = styled.button`
   border-radius: 1rem;
   width: 100%;
   color: ${props => props.theme.dark};
-  color: #3e3e3e;
   font-size: 1.2rem;
   letter-spacing: 1px;
   font-weight: 900;
+  transition: 0.3s;
+
+  &:hover {
+    background: ${props => props.theme.mid};
+    color: ${props => props.theme.light};
+    cursor: pointer;
+  }
 `;
 
 const SearchForm = ({ searches, setSearches }) => {
