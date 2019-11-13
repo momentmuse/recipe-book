@@ -17,7 +17,7 @@ const theme = {
   warning: '#F8D762',
   danger: '#F28391',
   info: '#F8DABB',
-  light: '#fafafa',
+  light: '#f0f0f0',
   dark: '#282c34',
   device: device
 };

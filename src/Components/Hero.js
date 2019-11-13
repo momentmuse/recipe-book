@@ -37,17 +37,19 @@ const Hero = () => {
     `What's cookin', good lookin'? Type in an ingredient to get started!`,
     `Tell me what you've got in your pantry and I'll take kale of the rest.`,
     `Throwing away rotten ingredients again? Don't go bacon my heart!`,
-    `Feeling saucy? Cheesy puns cracker me up, they're just too gouda.`
+    `Feeling saucy? Cheesy puns cracker me up, they're just too gouda.`,
+    `Hmmm... Banana bread sounds pretty a-peel-ing, don't you think?`,
+    `Feeling hungry? I'm egg-cited to see what you can whip up!`
   ];
 
-  const randomMessage = () => {
-    return messages[(messages.length * Math.random()) | 0];
+  const getRandom = arr => {
+    return arr[(arr.length * Math.random()) | 0];
   };
 
   return (
     <React.Fragment>
       <Mascot src={logo192} alt="logo" />
-      <SpeechBubble>{randomMessage()}</SpeechBubble>
+      <SpeechBubble>{getRandom(messages)}</SpeechBubble>
     </React.Fragment>
   );
 };

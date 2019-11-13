@@ -11,12 +11,14 @@ import useSpinner from './Hooks/useSpinner';
 const RecipeBook = styled.div`
   font-family: ${props => props.theme.font}, sans-serif;
   color: ${props => props.theme.light};
+  display: flex;
+  justify-content: center;
 `;
 
 const Main = styled.div`
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: relative;
   top: 9vh;
   margin: 1.5rem 1rem;
 `;
