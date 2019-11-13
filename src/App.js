@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import logo192 from './logo192.png';
 import './App.css';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from './theme.js';
+import Navbar from './Components/Navbar';
+import Hero from './Components/Hero';
 import SearchForm from './Components/SearchForm';
 import SearchResults from './Components/SearchResults';
 import useSpinner from './Hooks/useSpinner';
@@ -12,29 +13,12 @@ const RecipeBook = styled.div`
   color: ${props => props.theme.light};
 `;
 
-const Header = styled.div`
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to right, #08c781, #00bfb3);
-  width: 100%;
-  height: 9vh;
-  -webkit-box-shadow: 0 8px 6px -6px #333;
-  -moz-box-shadow: 0 8px 6px -6px #333;
-  box-shadow: 0 8px 6px -6px #333;
-  z-index: 2;
-`;
-
-const Title = styled.span`
-  font-size: 1.8em;
-  font-weight: 900;
-  color: ${props => props.theme.light};
-`;
-
 const Main = styled.div`
+  display: flex;
+  flex-direction: column;
   position: absolute;
-  top: 12vh;
+  top: 9vh;
+  margin: 1.5rem 1rem;
 `;
 
 const App = () => {
@@ -81,11 +65,9 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <RecipeBook>
-        <Header>
-          <Title>pantry badi</Title>
-        </Header>
+        <Navbar />
         <Main>
-          <img src={logo192} alt="logo" />
+          <Hero />
           <SearchForm searches={searches} setSearches={setSearches} />
           <SearchResults
             searches={searches}
