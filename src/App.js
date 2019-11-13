@@ -1,10 +1,41 @@
 import React, { useState, useEffect, useRef } from 'react';
 import logo192 from './logo192.png';
-import { ThemeProvider } from 'styled-components';
+import './App.css';
+import styled, { ThemeProvider } from 'styled-components';
 import theme from './theme.js';
 import SearchForm from './Components/SearchForm';
 import SearchResults from './Components/SearchResults';
 import useSpinner from './Hooks/useSpinner';
+
+const RecipeBook = styled.div`
+  font-family: ${props => props.theme.font}, sans-serif;
+  color: ${props => props.theme.light};
+`;
+
+const Header = styled.div`
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #08c781, #00bfb3);
+  width: 100%;
+  height: 9vh;
+  -webkit-box-shadow: 0 8px 6px -6px #333;
+  -moz-box-shadow: 0 8px 6px -6px #333;
+  box-shadow: 0 8px 6px -6px #333;
+  z-index: 2;
+`;
+
+const Title = styled.span`
+  font-size: 1.8em;
+  font-weight: 900;
+  color: ${props => props.theme.light};
+`;
+
+const Main = styled.div`
+  position: absolute;
+  top: 12vh;
+`;
 
 const App = () => {
   const isInitialMount = useRef(true);
@@ -49,20 +80,20 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div>
-        <header>
+      <RecipeBook>
+        <Header>
+          <Title>pantry badi</Title>
+        </Header>
+        <Main>
           <img src={logo192} alt="logo" />
-          <p>Recipes</p>
-        </header>
-        <main>
           <SearchForm searches={searches} setSearches={setSearches} />
           <SearchResults
             searches={searches}
             recipes={recipes}
             spinnerIcon={spinnerIcon}
           />
-        </main>
-      </div>
+        </Main>
+      </RecipeBook>
     </ThemeProvider>
   );
 };
