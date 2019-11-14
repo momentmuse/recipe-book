@@ -3,8 +3,13 @@ import styled from 'styled-components';
 
 const IngredientsContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
   flex-wrap: wrap;
+  margin: auto;
+  width: 85vw;
+
+  @media ${props => props.theme.device.tablet} {
+    width: 55vw;
+  }
 `;
 
 const Button = styled.button`
@@ -12,7 +17,7 @@ const Button = styled.button`
   color: ${props => props.theme.light};
   border: none;
   padding: 0.5rem 0.8rem;
-  margin: 0.3rem 0;
+  margin: 0.3rem 0.3rem;
   border-radius: 2rem;
   font-size: 1rem;
   transition: 0.3s;

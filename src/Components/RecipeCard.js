@@ -22,6 +22,7 @@ const Card = styled.div`
   width: 90vw;
   background: #fff;
   padding: 0.5rem 1rem;
+  border-radius: 6px;
   margin: 1rem 0;
   text-align: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
