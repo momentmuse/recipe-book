@@ -1,7 +1,8 @@
 import React from 'react';
-import RecipeCard from './RecipeCard';
+
 import NoResults from './NoResults';
 import styled from 'styled-components';
+import RecipeList from './RecipeList';
 
 const ResultsContainer = styled.div`
   display: flex;
@@ -24,18 +25,12 @@ const SearchResults = ({ searches, recipes, spinnerIcon }) => {
     if (spinnerIcon) {
       return spinnerIcon;
     } else if (recipes.length > 0) {
-      return recipeList(recipes);
+      return <RecipeList recipes={recipes} />;
     } else if (lastSearch.length > 0) {
       return <NoResults />;
     } else {
       return;
     }
-  };
-
-  const recipeList = recipes => {
-    return recipes.map((recipe, index) => {
-      return <RecipeCard recipe={recipe} key={recipe.title + index} />;
-    });
   };
 
   return (
