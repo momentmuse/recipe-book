@@ -5,8 +5,15 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
+const searches = [
+  ['cheese'],
+  ['cheese', 'potato'],
+  ['cheese', 'potato', 'tomato']
+];
+const setSeaches = () => {};
+
 describe('IngredientButton', () => {
   it('renders the component', () => {
-    shallow(<IngredientButton />);
+    shallow(<IngredientButton searches={searches} setSearches={setSeaches} />);
   });
 });

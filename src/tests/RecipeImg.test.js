@@ -5,8 +5,10 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
+const img = 'hungry-hungry-hippos.jpeg';
+
 describe('RecipeImg', () => {
   it('renders the component', () => {
-    shallow(<RecipeImg />);
+    shallow(<RecipeImg img={img} />);
   });
 });

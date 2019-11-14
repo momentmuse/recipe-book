@@ -67,4 +67,5 @@ const SearchForm = ({ searches, setSearches }) => {
   );
 };
 
+SearchForm.defaultProps = { searches: [], setSearches: () => {} };
 export default SearchForm;

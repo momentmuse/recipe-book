@@ -38,4 +38,9 @@ const SearchResults = ({ searches, recipes, spinnerIcon }) => {
   );
 };
 
+SearchResults.defaultProps = {
+  searches: [],
+  recipes: [],
+  spinnerIcon: '<div />'
+};
 export default SearchResults;

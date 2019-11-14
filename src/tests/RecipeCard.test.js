@@ -5,8 +5,15 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
+const recipe = {
+  title: 'Oh lawd he comin',
+  ingredients: ['bananas', 'butter', 'sugar', 'flour', 'eggs'],
+  thumbnail: 'cat-eating-cake.jpg',
+  href: 'http://www.meowirl.com/'
+};
+
 describe('RecipeCard', () => {
   it('renders the component', () => {
-    shallow(<RecipeCard />);
+    shallow(<RecipeCard recipe={recipe} />);
   });
 });

@@ -44,4 +44,5 @@ const SearchInput = ({ onChange, values, errors }) => {
   );
 };
 
+SearchInput.defaultProps = { onChange: () => {}, values: {}, errors: {} };
 export default SearchInput;
