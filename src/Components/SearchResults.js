@@ -7,6 +7,13 @@ const ResultsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media ${props => props.theme.device.laptop} {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 const SearchResults = ({ searches, recipes, spinnerIcon }) => {

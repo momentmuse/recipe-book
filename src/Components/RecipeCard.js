@@ -30,6 +30,10 @@ const Card = styled.div`
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     cursor: pointer;
   }
+
+  @media ${props => props.theme.device.laptop} {
+    max-width: 29vw;
+  }
 `;
 
 const RecipeTitle = styled.p`

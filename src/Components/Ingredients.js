@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const IngredientsContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
 `;
 
 const Button = styled.button`

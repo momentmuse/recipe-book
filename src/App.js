@@ -15,12 +15,16 @@ const RecipeBook = styled.div`
   justify-content: center;
 `;
 
-const Main = styled.div`
+const MainWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
   top: 9vh;
   margin: 1.5rem 1rem;
+
+  @media ${props => props.theme.device.laptop} {
+    width: 60vw;
+  }
 `;
 
 const App = () => {
@@ -68,7 +72,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <RecipeBook>
         <Navbar />
-        <Main>
+        <MainWrapper>
           <Hero />
           <SearchForm searches={searches} setSearches={setSearches} />
           <SearchResults
@@ -76,7 +80,7 @@ const App = () => {
             recipes={recipes}
             spinnerIcon={spinnerIcon}
           />
-        </Main>
+        </MainWrapper>
       </RecipeBook>
     </ThemeProvider>
   );
