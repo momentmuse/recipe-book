@@ -4,9 +4,9 @@ import styled from 'styled-components';
 const HeartContainer = styled.div`
   position: absolute;
   display: block;
-  font-size: 1.8rem;
-  top: 12px;
-  left: 12px;
+  font-size: 2rem;
+  top: 14px;
+  left: 14px;
   color: ${props => props.theme.danger};
   transition: all 0.2s ease-in-out;
 

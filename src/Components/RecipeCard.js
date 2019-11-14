@@ -38,7 +38,6 @@ const Card = styled.div`
 `;
 
 const RecipeTitle = styled.p`
-  margin: 0.5rem 1.5rem;
   font-weight: 900;
   font-size: 1.3rem;
 `;
@@ -49,8 +48,8 @@ const RecipeCard = ({ recipe }) => {
       <CardLink href={recipe.href}>
         <Heart recipe={recipe} />
         <Ribbon recipe={recipe} />
-        <RecipeTitle>{recipe.title}</RecipeTitle>
         <RecipeImg img={recipe.thumbnail} />
+        <RecipeTitle>{recipe.title}</RecipeTitle>
         <p>{recipe.ingredients}</p>
       </CardLink>
     </Card>
