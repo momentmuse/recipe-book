@@ -8,7 +8,7 @@ const ResultsContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media ${props => props.theme.device.laptop} {
+  @media ${props => props.theme.device.tablet} {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;

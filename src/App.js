@@ -22,6 +22,10 @@ const MainWrapper = styled.div`
   top: 9vh;
   margin: 1.5rem 1rem;
 
+  @media ${props => props.theme.device.tablet} {
+    width: 70vw;
+  }
+
   @media ${props => props.theme.device.laptop} {
     width: 60vw;
   }

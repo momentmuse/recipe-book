@@ -31,6 +31,10 @@ const Card = styled.div`
     cursor: pointer;
   }
 
+  @media ${props => props.theme.device.tablet} {
+    max-width: 34vw;
+  }
+
   @media ${props => props.theme.device.laptop} {
     max-width: 29vw;
   }
