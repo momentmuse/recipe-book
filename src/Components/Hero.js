@@ -33,21 +33,21 @@ const SpeechBubble = styled.span`
   }
 `;
 
+const messages = [
+  `What's cookin', good lookin'? Type in an ingredient to get started!`,
+  `Tell me what you've got in your pantry and I'll take kale of the rest.`,
+  `Throwing away rotten ingredients again? Don't go bacon my heart!`,
+  `I fondue the perfect recipe! Cheesy puns cracker me up, they're too gouda.`,
+  `Hmmm... Banana bread sounds pretty a-peel-ing, don't you think?`,
+  `Feeling hungry? I'm egg-cited to see what you'll whip up!`,
+  `You're luck kiwi have the perfect recipe in store for you!`
+];
+
+const getRandom = arr => {
+  return arr[(arr.length * Math.random()) | 0];
+};
+
 const Hero = () => {
-  const messages = [
-    `What's cookin', good lookin'? Type in an ingredient to get started!`,
-    `Tell me what you've got in your pantry and I'll take kale of the rest.`,
-    `Throwing away rotten ingredients again? Don't go bacon my heart!`,
-    `I fondue the perfect recipe! Cheesy puns cracker me up, they're too gouda.`,
-    `Hmmm... Banana bread sounds pretty a-peel-ing, don't you think?`,
-    `Feeling hungry? I'm egg-cited to see what you'll whip up!`,
-    `You're luck kiwi have the perfect recipe in store for you!`
-  ];
-
-  const getRandom = arr => {
-    return arr[(arr.length * Math.random()) | 0];
-  };
-
   return (
     <React.Fragment>
       <Mascot src={logo192} alt="logo" />

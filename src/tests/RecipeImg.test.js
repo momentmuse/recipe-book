@@ -1,12 +1,12 @@
 import React from 'react';
-import App from './App';
+import RecipeImg from './../Components/RecipeImg';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-describe('App', () => {
+describe('RecipeImg', () => {
   it('renders the component', () => {
-    shallow(<App />);
+    shallow(<RecipeImg />);
   });
 });

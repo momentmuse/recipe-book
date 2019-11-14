@@ -1,12 +1,12 @@
 import React from 'react';
-import App from './App';
+import IngredientButton from './../Components/IngredientButton';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-describe('App', () => {
+describe('IngredientButton', () => {
   it('renders the component', () => {
-    shallow(<App />);
+    shallow(<IngredientButton />);
   });
 });

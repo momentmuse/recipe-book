@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Nav = styled.div`
+const Head = styled.div`
   position: fixed;
   display: flex;
   align-items: center;
@@ -32,14 +32,15 @@ const scrollToTop = () => {
   document.body.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 
-const Navbar = () => {
+const Header = ({ appTitle }) => {
   return (
-    <Nav onClick={() => scrollToTop()}>
+    <Head onClick={() => scrollToTop()}>
       <Title>
-        <i className="fas fa-utensils"></i> recipe badi
+        <i className="fas fa-utensils"></i>
+        {` ${appTitle}`}
       </Title>
-    </Nav>
+    </Head>
   );
 };
 
-export default Navbar;
+export default Header;

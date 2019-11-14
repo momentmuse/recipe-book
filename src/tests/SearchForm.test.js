@@ -1,12 +1,12 @@
 import React from 'react';
-import App from './App';
+import SearchForm from './../Components/SearchForm';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-describe('App', () => {
+describe('SearchForm', () => {
   it('renders the component', () => {
-    shallow(<App />);
+    shallow(<SearchForm />);
   });
 });

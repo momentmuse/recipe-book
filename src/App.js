@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from './theme.js';
-import Navbar from './Components/Navbar';
+import Header from './Components/Header';
 import Hero from './Components/Hero';
 import SearchForm from './Components/SearchForm';
 import SearchResults from './Components/SearchResults';
@@ -73,7 +73,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <RecipeBook>
-        <Navbar />
+        <Header appTitle="recipe badi" />
         <MainWrapper>
           <Hero />
           <SearchForm searches={searches} setSearches={setSearches} />

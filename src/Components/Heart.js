@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const HeartContainer = styled.div`
   position: absolute;
   display: block;
-  font-size: 2rem;
+  font-size: 1.8rem;
   top: 14px;
   left: 14px;
   color: ${props => props.theme.danger};

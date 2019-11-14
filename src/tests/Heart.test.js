@@ -1,12 +1,12 @@
 import React from 'react';
-import App from './App';
+import Heart from './../Components/Heart';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-describe('App', () => {
+describe('Heart', () => {
   it('renders the component', () => {
-    shallow(<App />);
+    shallow(<Heart />);
   });
 });
