@@ -9,4 +9,12 @@ describe('Hero', () => {
   it('renders the component', () => {
     shallow(<Hero />);
   });
+  it('contains a hero logo', () => {
+    const wrapper = shallow(<Hero />);
+    expect(wrapper.find('.hero-logo').exists()).toBeTruthy();
+  });
+  it('returns a speech bubble message', () => {
+    const wrapper = shallow(<Hero />);
+    expect(wrapper.find('.speech-bubble').text()).toBeTruthy();
+  });
 });

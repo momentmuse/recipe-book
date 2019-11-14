@@ -59,8 +59,8 @@ const Ribbon = ({ recipe }) => {
   };
 
   return (
-    <RibbonRight hasLactose={checkLactose(recipe)}>
-      <RibbonSpan>Has Lactose</RibbonSpan>
+    <RibbonRight className="ribbon-right" hasLactose={checkLactose(recipe)}>
+      <RibbonSpan className="ribbon-span">Has Lactose</RibbonSpan>
     </RibbonRight>
   );
 };

@@ -23,4 +23,18 @@ describe('Ribbon', () => {
   it('renders the component', () => {
     shallow(<Ribbon recipe={recipe} />);
   });
+  it('returns hasLactose as true only when recipe ingredients contain milk, yogurt, or cheese', () => {
+    const wrapper = shallow(<Ribbon recipe={recipe} />);
+    expect(wrapper.find('.ribbon-right').prop('hasLactose')).toBeFalsy();
+    wrapper.setProps({ recipe: lactose });
+    expect(wrapper.find('.ribbon-right').prop('hasLactose')).toBeTruthy();
+  });
+  it('contains one span element', () => {
+    const wrapper = shallow(<Ribbon recipe={recipe} />);
+    expect(wrapper.find('.ribbon-span').exists()).toBeTruthy();
+  });
+  it('has a span with inner text of has lactose', () => {
+    const wrapper = shallow(<Ribbon recipe={recipe} />);
+    expect(wrapper.find('.ribbon-span').text()).toMatch('Has Lactose');
+  });
 });

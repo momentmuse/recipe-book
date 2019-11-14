@@ -11,4 +11,8 @@ describe('RecipeImg', () => {
   it('renders the component', () => {
     shallow(<RecipeImg img={img} />);
   });
+  it('returns a placeholder image if the img string is empty', () => {
+    const wrapper = shallow(<RecipeImg img={''} />);
+    expect(wrapper.prop('src')).toBeTruthy();
+  });
 });

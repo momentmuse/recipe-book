@@ -50,8 +50,10 @@ const getRandom = arr => {
 const Hero = () => {
   return (
     <React.Fragment>
-      <Mascot src={logo192} alt="logo" />
-      <SpeechBubble>{getRandom(messages)}</SpeechBubble>
+      <Mascot className="hero-logo" src={logo192} alt="logo" />
+      <SpeechBubble className="speech-bubble">
+        {getRandom(messages)}
+      </SpeechBubble>
     </React.Fragment>
   );
 };

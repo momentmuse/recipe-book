@@ -9,4 +9,8 @@ describe('Header', () => {
   it('renders the component', () => {
     shallow(<Header />);
   });
+  it('renders the app title correctly', () => {
+    const wrapper = shallow(<Header appTitle={'cool title'} />);
+    expect(wrapper.find('.app-title').text()).toMatch('cool title');
+  });
 });
