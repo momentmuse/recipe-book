@@ -20,7 +20,7 @@ const MainWrapper = styled.div`
   flex-direction: column;
   position: relative;
   top: 9vh;
-  margin: 1.5rem 1rem;
+  margin: 1rem;
   @media ${props => props.theme.device.tablet} {
     width: 70vw;
   }

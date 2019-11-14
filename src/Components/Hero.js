@@ -4,11 +4,12 @@ import logo192 from './../logo192.png';
 
 const Mascot = styled.img`
   width: max-content;
-  margin: auto;
+  margin: 0.4rem auto;
 `;
 const SpeechBubble = styled.span`
   position: relative;
-  margin-top: 0.4rem;
+  margin: auto;
+  width: fit-content;
   background: ${props => props.theme.primary};
   border-radius: 2rem;
   color: #fff;
@@ -39,8 +40,7 @@ const Hero = () => {
     `Throwing away rotten ingredients again? Don't go bacon my heart!`,
     `I fondue the perfect recipe! Cheesy puns cracker me up, they're too gouda.`,
     `Hmmm... Banana bread sounds pretty a-peel-ing, don't you think?`,
-    `Feeling hungry? I'm egg-cited to see what you can whip up!`,
-    `Well now, to brie or not to brie... that is the question!`,
+    `Feeling hungry? I'm egg-cited to see what you'll whip up!`,
     `You're luck kiwi have the perfect recipe in store for you!`
   ];
 
