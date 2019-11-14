@@ -19,6 +19,8 @@ const RecentSearches = styled.div`
 const SearchesContainer = styled.div`
   display: flex;
   flex-direction: column;
+  max-height: ${props => (props.open ? '100%' : '0')};
+  overflow: hidden;
 `;
 
 const Search = styled.button`
@@ -41,27 +43,22 @@ const SearchLog = ({ searches, setSearches }) => {
 
   const renderRecent = searches => {
     const searchesClone = [...searches];
-
-    if (toggleRecent) {
-      return searchesClone
-        .filter(search => search.length > 0)
-        .reverse()
-        .slice(0, 5)
-        .map((search, index) => {
-          return (
-            <Search
-              value={search}
-              key={search + index}
-              onClick={e => selectRecent(e)}
-              onBlur={e => selectRecent(e)}
-            >
-              {search.join(', ')}
-            </Search>
-          );
-        });
-    } else {
-      return;
-    }
+    return searchesClone
+      .filter(search => search.length > 0)
+      .reverse()
+      .slice(0, 5)
+      .map((search, index) => {
+        return (
+          <Search
+            value={search}
+            key={search + index}
+            onClick={e => selectRecent(e)}
+            onBlur={e => selectRecent(e)}
+          >
+            {search.join(', ')}
+          </Search>
+        );
+      });
   };
 
   const selectRecent = e => {
@@ -70,7 +67,7 @@ const SearchLog = ({ searches, setSearches }) => {
   };
 
   return (
-    <div className="search-log">
+    <React.Fragment>
       <RecentSearches onClick={() => setToggleRecent(!toggleRecent)}>
         Recent Searches &nbsp;{' '}
         {toggleRecent ? (
@@ -79,8 +76,10 @@ const SearchLog = ({ searches, setSearches }) => {
           <i class="fas fa-angle-double-down"></i>
         )}
       </RecentSearches>
-      <SearchesContainer>{renderRecent(searches)}</SearchesContainer>
-    </div>
+      <SearchesContainer open={toggleRecent}>
+        {renderRecent(searches)}
+      </SearchesContainer>
+    </React.Fragment>
   );
 };
 
