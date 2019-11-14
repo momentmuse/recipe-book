@@ -36,7 +36,7 @@ const Navbar = () => {
   return (
     <Nav onClick={() => scrollToTop()}>
       <Title>
-        <i class="fas fa-utensils"></i> recipe badi
+        <i className="fas fa-utensils"></i> recipe badi
       </Title>
     </Nav>
   );

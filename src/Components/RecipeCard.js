@@ -1,10 +1,10 @@
 import React from 'react';
 import RecipeImg from './RecipeImg';
+import Ribbon from './Ribbon';
 import styled from 'styled-components';
 
 const CardLink = styled.a`
   text-decoration: none;
-
   &:link {
     color: ${props => props.theme.dark};
   }
@@ -39,18 +39,10 @@ const RecipeTitle = styled.p`
 `;
 
 const RecipeCard = ({ recipe }) => {
-  const checkLactose = recipe => {
-    const lactoseIngredients = ['milk', 'yogurt', 'cheese'];
-    return lactoseIngredients.some(ingredient =>
-      recipe.ingredients.includes(ingredient)
-    )
-      ? ' contains-lactose'
-      : '';
-  };
-
   return (
     <CardLink href={recipe.href}>
-      <Card className={'recipe-card' + checkLactose(recipe)}>
+      <Card>
+        <Ribbon recipe={recipe} />
         <RecipeTitle>{recipe.title}</RecipeTitle>
         <RecipeImg img={recipe.thumbnail} />
         <p>{recipe.ingredients}</p>

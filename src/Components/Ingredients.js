@@ -37,7 +37,7 @@ const Ingredients = ({ searches, setSearches }) => {
     return lastSearch.map(ingredient => {
       return (
         <Button onClick={() => removeIngredient(ingredient)} key={ingredient}>
-          {ingredient} <i class="fas fa-times-circle"></i>
+          {ingredient} <i className="fas fa-times-circle"></i>
         </Button>
       );
     });

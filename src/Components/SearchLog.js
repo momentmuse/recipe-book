@@ -19,8 +19,11 @@ const RecentSearches = styled.div`
 const SearchesContainer = styled.div`
   display: flex;
   flex-direction: column;
-  max-height: ${props => (props.open ? '100%' : '0')};
   overflow: hidden;
+  opacity: ${props => (props.open ? '1' : '0')};
+  max-height: ${props => (props.open ? '100%' : '0')};
+  padding: ${props => (props.open ? '0.5rem 0' : '0')};
+  transition: all 0.3s;
 `;
 
 const Search = styled.button`
@@ -71,9 +74,9 @@ const SearchLog = ({ searches, setSearches }) => {
       <RecentSearches onClick={() => setToggleRecent(!toggleRecent)}>
         Recent Searches &nbsp;{' '}
         {toggleRecent ? (
-          <i class="fas fa-angle-double-up"></i>
+          <i className="fas fa-angle-double-up"></i>
         ) : (
-          <i class="fas fa-angle-double-down"></i>
+          <i className="fas fa-angle-double-down"></i>
         )}
       </RecentSearches>
       <SearchesContainer open={toggleRecent}>
