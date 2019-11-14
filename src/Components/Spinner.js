@@ -1,8 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const SpinnerContainer = styled.div`
+  margin: auto;
+`;
 
 const Spinner = () => {
   return (
-    <div>
+    <SpinnerContainer>
       <svg
         width="200px"
         height="200px"
@@ -122,7 +127,7 @@ const Spinner = () => {
           ></animate>
         </circle>
       </svg>
-    </div>
+    </SpinnerContainer>
   );
 };
 
