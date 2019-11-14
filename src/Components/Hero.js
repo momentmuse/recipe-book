@@ -9,11 +9,11 @@ const Mascot = styled.img`
 const SpeechBubble = styled.span`
   position: relative;
   margin-top: 0.4rem;
-  background: #08c781;
+  background: ${props => props.theme.primary};
   border-radius: 2rem;
   color: #fff;
   padding: 0.8rem 1rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-align: center;
 
   &:after {
@@ -24,7 +24,7 @@ const SpeechBubble = styled.span`
     width: 0;
     height: 0;
     border: 20px solid transparent;
-    border-bottom-color: #08c781;
+    border-bottom-color: ${props => props.theme.primary};
     border-top: 0;
     border-left: 0;
     margin-left: -10px;
@@ -37,9 +37,11 @@ const Hero = () => {
     `What's cookin', good lookin'? Type in an ingredient to get started!`,
     `Tell me what you've got in your pantry and I'll take kale of the rest.`,
     `Throwing away rotten ingredients again? Don't go bacon my heart!`,
-    `Feeling saucy? Cheesy puns cracker me up, they're just too gouda.`,
+    `I fondue the perfect recipe! Cheesy puns cracker me up, they're too gouda.`,
     `Hmmm... Banana bread sounds pretty a-peel-ing, don't you think?`,
-    `Feeling hungry? I'm egg-cited to see what you can whip up!`
+    `Feeling hungry? I'm egg-cited to see what you can whip up!`,
+    `Well now, to brie or not to brie... that is the question!`,
+    `You're luck kiwi have the perfect recipe in store for you!`
   ];
 
   const getRandom = arr => {

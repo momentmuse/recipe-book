@@ -6,13 +6,19 @@ const Nav = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right, #08c781, #00bfb3);
+  background: linear-gradient(
+    to right,
+    ${props => props.theme.primary},
+    ${props => props.theme.secondary}
+  );
   width: 100%;
   height: 9vh;
-  -webkit-box-shadow: 0 8px 6px -6px #333;
-  -moz-box-shadow: 0 8px 6px -6px #333;
   box-shadow: 0 8px 6px -6px #333;
   z-index: 2;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Title = styled.span`
@@ -22,10 +28,16 @@ const Title = styled.span`
   color: #fff;
 `;
 
+const scrollToTop = () => {
+  document.body.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
 const Navbar = () => {
   return (
-    <Nav>
-      <Title>pantry badi</Title>
+    <Nav onClick={() => scrollToTop()}>
+      <Title>
+        <i class="fas fa-utensils"></i> recipe badi
+      </Title>
     </Nav>
   );
 };

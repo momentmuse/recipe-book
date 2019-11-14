@@ -1,7 +1,7 @@
 import React from 'react';
 import RecipeCard from './RecipeCard';
 import styled from 'styled-components';
-import notfound from './../assets/notfound.png';
+import muffin from './../assets/muffin.png';
 
 const ResultsContainer = styled.div`
   /* display: flex;
@@ -33,8 +33,8 @@ const SearchResults = ({ searches, recipes, spinnerIcon }) => {
   const noResultsFound = () => {
     return (
       <div>
-        <img src={notfound} alt="magnifying glass" />
-        Sorry, I couldn't find any recipes!
+        <img src={muffin} alt="no results found muffin" />
+        Sorry, I took a look, but I've got muffin' for ya. Search again?
       </div>
     );
   };

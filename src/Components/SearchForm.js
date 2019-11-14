@@ -17,13 +17,14 @@ const Button = styled.button`
   background: ${props => props.theme.warning};
   border: none;
   padding: 1rem 2rem;
-  border-radius: 1rem;
+  border-radius: 2rem;
   width: 100%;
   color: ${props => props.theme.dark};
   font-size: 1.2rem;
   letter-spacing: 1px;
   font-weight: 900;
   transition: 0.3s;
+  box-shadow: 0 8px 6px -6px #999;
 
   &:hover {
     background: ${props => props.theme.mid};
@@ -58,8 +59,10 @@ const SearchForm = ({ searches, setSearches }) => {
         <SearchInput onChange={onChange} values={values} errors={errors} />
         <Button>{`Let's get cooking!`.toUpperCase()}</Button>
       </Form>
-      <SearchLog searches={searches} setSearches={setSearches} />
       <Ingredients searches={searches} setSearches={setSearches} />
+      {searches.length > 0 && (
+        <SearchLog searches={searches} setSearches={setSearches} />
+      )}
     </SearchFormContainer>
   );
 };

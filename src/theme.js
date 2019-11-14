@@ -12,8 +12,8 @@ const device = {
 
 const theme = {
   font: 'Muli',
-  primary: '#7DDAD3',
-  secondary: '#C5EAF1',
+  primary: '#08c781',
+  secondary: '#00bfb3',
   warning: '#F8D762',
   danger: '#F28391',
   info: '#F8DABB',

@@ -8,18 +8,18 @@ const IngredientsContainer = styled.div`
 `;
 
 const Button = styled.button`
-  background: ${props => props.theme.danger};
+  background: ${props => props.theme.mid};
+  color: ${props => props.theme.light};
   border: none;
   padding: 0.5rem 0.8rem;
   margin: 0.3rem 0;
   border-radius: 2rem;
-  color: ${props => props.theme.dark};
   font-size: 1rem;
   transition: 0.3s;
 
   &:hover {
-    background: ${props => props.theme.mid};
-    color: ${props => props.theme.light};
+    background: ${props => props.theme.primary};
+    color: ${props => props.theme.dark};
     cursor: pointer;
   }
 `;
