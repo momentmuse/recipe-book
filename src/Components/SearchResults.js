@@ -1,12 +1,12 @@
 import React from 'react';
 import RecipeCard from './RecipeCard';
+import NoResults from './NoResults';
 import styled from 'styled-components';
-import muffin from './../assets/muffin.png';
 
 const ResultsContainer = styled.div`
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: space-between; */
+  align-items: center;
 `;
 
 const SearchResults = ({ searches, recipes, spinnerIcon }) => {
@@ -18,7 +18,7 @@ const SearchResults = ({ searches, recipes, spinnerIcon }) => {
     } else if (recipes.length > 0) {
       return recipeList(recipes);
     } else if (lastSearch.length > 0) {
-      return noResultsFound();
+      return <NoResults />;
     } else {
       return;
     }
@@ -30,19 +30,8 @@ const SearchResults = ({ searches, recipes, spinnerIcon }) => {
     });
   };
 
-  const noResultsFound = () => {
-    return (
-      <div>
-        <img src={muffin} alt="no results found muffin" />
-        Sorry, I took a look, but I've got muffin' for ya. Search again?
-      </div>
-    );
-  };
-
   return (
-    <ResultsContainer className="search-results">
-      {populateResults(spinnerIcon, recipes)}
-    </ResultsContainer>
+    <ResultsContainer>{populateResults(spinnerIcon, recipes)}</ResultsContainer>
   );
 };
 
