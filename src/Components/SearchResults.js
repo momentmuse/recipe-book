@@ -9,10 +9,11 @@ const ResultsContainer = styled.div`
   align-items: center;
 
   @media ${props => props.theme.device.tablet} {
+    height: 100%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
   }
 `;
 

@@ -9,9 +9,11 @@ const RecentSearches = styled.div`
   border-bottom: 1px solid #e3e3e3;
   margin-top: 0.5rem;
   text-align: center;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     color: ${props => props.theme.primary};
+    transform: scale(1.1);
     cursor: pointer;
   }
 `;
@@ -34,10 +36,12 @@ const Search = styled.button`
   border-bottom: 1px solid #e3e3e3;
   text-align: center;
   background-color: #fff;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     color: ${props => props.theme.primary};
     cursor: pointer;
+    font-weight: 900;
   }
 `;
 

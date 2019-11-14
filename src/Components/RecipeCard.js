@@ -32,11 +32,7 @@ const Card = styled.div`
   }
 
   @media ${props => props.theme.device.tablet} {
-    max-width: 34vw;
-  }
-
-  @media ${props => props.theme.device.laptop} {
-    max-width: 29vw;
+    width: 48.5%;
   }
 `;
 
@@ -48,14 +44,14 @@ const RecipeTitle = styled.p`
 
 const RecipeCard = ({ recipe }) => {
   return (
-    <CardLink href={recipe.href}>
-      <Card>
+    <Card>
+      <CardLink href={recipe.href}>
         <Ribbon recipe={recipe} />
         <RecipeTitle>{recipe.title}</RecipeTitle>
         <RecipeImg img={recipe.thumbnail} />
         <p>{recipe.ingredients}</p>
-      </Card>
-    </CardLink>
+      </CardLink>
+    </Card>
   );
 };
 
