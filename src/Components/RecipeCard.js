@@ -1,5 +1,6 @@
 import React from 'react';
 import RecipeImg from './RecipeImg';
+import Heart from './Heart';
 import Ribbon from './Ribbon';
 import styled from 'styled-components';
 
@@ -37,7 +38,7 @@ const Card = styled.div`
 `;
 
 const RecipeTitle = styled.p`
-  margin: 0.8rem 0;
+  margin: 0.5rem 1.5rem;
   font-weight: 900;
   font-size: 1.3rem;
 `;
@@ -46,6 +47,7 @@ const RecipeCard = ({ recipe }) => {
   return (
     <Card>
       <CardLink href={recipe.href}>
+        <Heart recipe={recipe} />
         <Ribbon recipe={recipe} />
         <RecipeTitle>{recipe.title}</RecipeTitle>
         <RecipeImg img={recipe.thumbnail} />

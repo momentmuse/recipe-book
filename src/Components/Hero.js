@@ -20,7 +20,7 @@ const SpeechBubble = styled.span`
     content: '';
     position: absolute;
     top: 0;
-    left: 65%;
+    left: 60%;
     width: 0;
     height: 0;
     border: 20px solid transparent;
