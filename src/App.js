@@ -7,6 +7,7 @@ import Hero from './Components/Hero';
 import SearchForm from './Components/SearchForm';
 import SearchResults from './Components/SearchResults';
 import useSpinner from './Hooks/useSpinner';
+import getRecipes from './Services/RecipeService';
 
 const RecipeBook = styled.div`
   font-family: ${props => props.theme.font}, sans-serif;
@@ -35,38 +36,25 @@ const App = () => {
   const [recipes, setRecipes] = useState([]);
   const { spinnerIcon, setSpinnerVisible } = useSpinner();
 
-  const buildQuery = searchArray => {
-    // API is not configured for CORS, so I spun up a cors-anywhere server on heroku to serve as proxy
-    const proxyUrl = 'https://stark-taiga-49462.herokuapp.com/';
-    const api = `http://www.recipepuppy.com/api/?i=`;
-    return proxyUrl + api + searchArray.join(',');
-  };
-
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else {
-      const fetchRecipes = async searchArray => {
-        // triggers if all previously searched items are deleted
-        if (searchArray.length === 0) {
-          setRecipes([]);
-          return;
-        }
-
-        setSpinnerVisible(true);
-        const response = await fetch(buildQuery(searchArray));
-        if (response.ok) {
-          const json = await response.json();
+      if (searches[searches.length - 1].length === 0) {
+        setRecipes([]);
+        return;
+      }
+      setSpinnerVisible(true);
+      getRecipes(searches[searches.length - 1])
+        .then(response => {
           setSpinnerVisible(false);
-          setRecipes(json.results);
-        } else {
-          // send error to a designated logging service
+          setRecipes(response.results);
+        })
+        .catch(error => {
           setSpinnerVisible(false);
-          console.error('HTTP-Error: ' + response.status);
-        }
-      };
-
-      fetchRecipes(searches[searches.length - 1]);
+          // send to designated error logging service
+          console.error('There was an error!', error);
+        });
     }
   }, [searches, setSpinnerVisible]);
 
