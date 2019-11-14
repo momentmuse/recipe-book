@@ -39,11 +39,9 @@ const App = () => {
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
+    } else if (searches[searches.length - 1].length === 0) {
+      setRecipes([]);
     } else {
-      if (searches[searches.length - 1].length === 0) {
-        setRecipes([]);
-        return;
-      }
       setSpinnerVisible(true);
       getRecipes(searches[searches.length - 1])
         .then(response => {
