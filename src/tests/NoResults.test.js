@@ -9,4 +9,8 @@ describe('NoResults', () => {
   it('renders the component', () => {
     shallow(<NoResults />);
   });
+  it('should contain a no results message', () => {
+    const wrapper = shallow(<NoResults />);
+    expect(wrapper.find('.no-results').exists()).toBeTruthy();
+  });
 });

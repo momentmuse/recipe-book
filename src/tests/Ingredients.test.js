@@ -9,4 +9,8 @@ describe('Ingredients', () => {
   it('renders the component', () => {
     shallow(<Ingredients />);
   });
+  it('should contain the ingredient buttons component', () => {
+    const wrapper = shallow(<Ingredients />);
+    expect(wrapper.find('IngredientButton').exists()).toBeTruthy();
+  });
 });

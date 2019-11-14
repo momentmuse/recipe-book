@@ -13,7 +13,7 @@ const NoResults = () => {
   return (
     <NoResultsContainer>
       <img src={muffin} alt="no results found muffin" />
-      <p>
+      <p className="no-results">
         Sorry, I've searched high and low, but I've got muffin' for ya. Search
         again? <br /> (Try the singular and plural form of the ingredient, too!)
       </p>
