@@ -1,68 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What is this
 
-## Available Scripts
+🍳 A simple yet charming recipe book built in React, using the notoriously finicky RecipePuppy API. 😹
+I mostly built this with the purpose of practicing hooks, so you won't find any class components here. Other techologies leveraged: styled-components for flair, Axios for the API call, and Enzyme with Jest for testing. Assets courtesy of flaticon and fontawesome. Puns courtesy of yours truly.
 
-In the project directory, you can run:
+### How to start!
 
-### `yarn start`
+🚀 Runs the app in the development mode. That's `npm start` | `yarn start`, depending on your setup. Similarly, running the `test` script prefixed by your package manager should run --watch Jest.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Anyway, open [http://localhost:3000](http://localhost:3000) to view it in your browser, and get cooking!
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Ok so the heart icons to add to favourites are just for show and don't do anything. And when you leave or refresh the page, all of your search history disappears, because generally this information would be stored in a session on a server somewhere, and localstorage would only handle the cookie/authentication token, and this was mostly for React practice. But that's for a future iteration 😉
 
-### `yarn test`
+### Observations
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+🤓 *Room for improvement*
+- the CSS could be modularized more, also I'm not very familiar with styled-components best practices, used to sass
+- having a design system in place for visual components would be nice, so you're not wasting time calibrating button padding
+- some awkward conditional rendering in components like the SearchResults--what code patterns can help rectify these?
+- although the proxy server works in order to get the request through, it's still 500-ing randomly
+- also, are these thunbnails for ants?! Honestly I would just use a different API or create my own
+- testing 🧐 need to take a course or two there
+- pull out helper functions and make use of useCallback to reduce load on each rerender
+- additionally, start looking into how computationally expensive each operation/function is, especially for asynchronous requests
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+🦄 *Looking to the future*
+- more in-depth testing, with mocks and simulated actions
+- design principles and better understanding of code architecture best practices
+- backend integration! perhaps spin up an Elixir server
+- alternatively, something wild like GraphQL + Apollo
+- though hooks were fun, I have to say I miss class components and state
+- likewise for Redux, where my reducers at?! 💜
+- interested in exploring functional practices for JS on the front-end
+- time to finally learn CSS grid
