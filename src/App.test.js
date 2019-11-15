@@ -26,8 +26,4 @@ describe('App', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find('SearchResults').exists()).toBeTruthy();
   });
-  // it('matches the snapshot', () => {
-  //   const tree = shallow(<App />);
-  //   expect(toJson(tree)).toMatchSnapshot();
-  // });
 });

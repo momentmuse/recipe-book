@@ -46,7 +46,7 @@ const RecipeTitle = styled.p`
 const RecipeCard = ({ recipe }) => {
   return (
     <Card>
-      <CardLink href={recipe.href}>
+      <CardLink href={recipe.href} target="_blank">
         <Heart recipe={recipe} />
         <Ribbon recipe={recipe} />
         <RecipeImg img={recipe.thumbnail} />
