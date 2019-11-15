@@ -7,9 +7,9 @@ const buildQuery = searchArray => {
   return proxyUrl + api + searchArray.join(',');
 };
 
-const getRecipes = searchArray => {
+const getAll = searchArray => {
   const request = axios.get(buildQuery(searchArray));
   return request.then(response => response.data);
 };
 
-export default getRecipes;
+export default { getAll };

@@ -9,4 +9,8 @@ describe('Heart', () => {
   it('renders the component', () => {
     shallow(<Heart />);
   });
+  it('contains a heart icon', () => {
+    const wrapper = shallow(<Heart />);
+    expect(wrapper.find('i').exists()).toBeTruthy();
+  });
 });

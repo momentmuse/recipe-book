@@ -30,4 +30,8 @@ describe('RecipeList', () => {
   it('renders the component', () => {
     shallow(<RecipeList recipes={recipes} />);
   });
+  it('should generate as many cards are there are recipes', () => {
+    const wrapper = shallow(<RecipeList recipes={recipes} />);
+    expect(wrapper.find('.recipe-card').length).toBe(recipes.length);
+  });
 });

@@ -30,7 +30,11 @@ const IngredientButton = ({ searches, setSearches }) => {
     const lastSearch = searches[searches.length - 1] || [];
     return lastSearch.map(ingredient => {
       return (
-        <Button onClick={() => removeIngredient(ingredient)} key={ingredient}>
+        <Button
+          className="ingredient-btn"
+          onClick={() => removeIngredient(ingredient)}
+          key={ingredient}
+        >
           {ingredient} <i className="fas fa-times-circle"></i>
         </Button>
       );

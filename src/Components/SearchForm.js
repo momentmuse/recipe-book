@@ -57,7 +57,7 @@ const SearchForm = ({ searches, setSearches }) => {
     <SearchFormContainer>
       <Form onSubmit={e => onSubmit(e)}>
         <SearchInput onChange={onChange} values={values} errors={errors} />
-        <Button>{`Let's get cooking!`.toUpperCase()}</Button>
+        <Button className="btn">{`Let's get cooking!`.toUpperCase()}</Button>
       </Form>
       <Ingredients searches={searches} setSearches={setSearches} />
       {searches.length > 0 && (

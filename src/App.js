@@ -7,7 +7,7 @@ import Hero from './Components/Hero';
 import SearchForm from './Components/SearchForm';
 import SearchResults from './Components/SearchResults';
 import useSpinner from './Hooks/useSpinner';
-import getRecipes from './Services/RecipeService';
+import RecipeService from './Services/RecipeService';
 
 const RecipeBook = styled.div`
   font-family: ${props => props.theme.font}, sans-serif;
@@ -43,7 +43,7 @@ const App = () => {
       setRecipes([]);
     } else {
       setSpinnerVisible(true);
-      getRecipes(searches[searches.length - 1])
+      RecipeService.getAll(searches[searches.length - 1])
         .then(response => {
           setSpinnerVisible(false);
           setRecipes(response.results);

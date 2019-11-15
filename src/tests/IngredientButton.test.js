@@ -16,4 +16,12 @@ describe('IngredientButton', () => {
   it('renders the component', () => {
     shallow(<IngredientButton searches={searches} setSearches={setSeaches} />);
   });
+  it('should generate as many buttons are there are ingredients', () => {
+    const wrapper = shallow(<IngredientButton searches={searches} />);
+    expect(wrapper.find('.ingredient-btn').length).toBe(searches.length);
+  });
+  it('should generate the ingredient name in the button', () => {
+    const wrapper = shallow(<IngredientButton searches={[['hello']]} />);
+    expect(wrapper.find('.ingredient-btn').text()).toMatch('hello');
+  });
 });

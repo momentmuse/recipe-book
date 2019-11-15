@@ -50,8 +50,8 @@ const RecipeCard = ({ recipe }) => {
         <Heart recipe={recipe} />
         <Ribbon recipe={recipe} />
         <RecipeImg img={recipe.thumbnail} />
-        <RecipeTitle>{recipe.title}</RecipeTitle>
-        <p>{recipe.ingredients}</p>
+        <RecipeTitle className="title">{recipe.title}</RecipeTitle>
+        <p className="ingredients">{recipe.ingredients}</p>
       </CardLink>
     </Card>
   );
