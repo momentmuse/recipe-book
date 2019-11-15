@@ -6,9 +6,6 @@
 🍳 A simple yet charming recipe book built in React, using the notoriously finicky RecipePuppy API. 😹
 I mostly built this with the purpose of practicing hooks, so you won't find any class components here. Other techologies leveraged: styled-components for flair, Axios for the API call, and Enzyme with Jest for testing. Assets courtesy of flaticon and fontawesome. Puns courtesy of yours truly.
 
-![](src/assets/mobile2.png "It's fully responsive!")
-![](src/assets/mobile1.png 'View recent searches')
-
 ### How to start!
 
 🚀 Runs the app in the development mode. That's `npm start` | `yarn start`, depending on your setup. Similarly, running the `test` script prefixed by your package manager should run --watch Jest.
